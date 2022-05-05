@@ -10,8 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>// close
+#include <stdlib.h>// malloc
 #include <fcntl.h>// open
 #include <stdio.h>// printf
+
+
+size_t	ft_strlen(const char *s);
+
+char	*get_next_line(int fd);
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -63,11 +70,14 @@ void	ft_main(char *file)
 
 void	ft_main_2(void)
 {
-	int		i[] = {0, 0, 0};
+	int		i[3];
 	int		fd[3];
 	char	*str[3];
 	int		c;
 
+	i[0] = 0;
+	i[1] = 0;
+	i[2] = 0;
 	fd[0] = open("../file/notes", O_RDONLY);
 	fd[1] = open("../file/notes2", O_RDONLY);
 	fd[2] = open("../file/multiple_nlx5", O_RDONLY);
